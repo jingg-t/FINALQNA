@@ -14,9 +14,8 @@ function render() {
 }
 
 render(); 
-
 // Start the interval
-let intervalId = setInterval(render, 250);
+let intervalId = setInterval(render, 5000);
 
 
 async function vote(clickedId) {
