@@ -6,7 +6,7 @@ function render() {
       displayFrame.innerHTML = `<h1 id="title"> Vote on a Question Questions </h1>`;
       for (elem in data) {
         if (!displayFrame.innerHTML.includes(data[elem]['id'])){
-          displayFrame.innerHTML += `<div class="question" id="${data[elem]['id']}"> <p> ${data[elem]['question']} </p></div> <button class="button-48" id="${data[elem]["id"]}" role="button" onclick="vote(this.id)"> <span class="text">Vote</span>
+          displayFrame.innerHTML += `<div class="question" id="${data[elem]['id']}"> <p> ${data[elem]['question']} </p></div> <button class="button-48" id="${data[elem]["id"]}" role="button" ontouchend="vote(this.id)" onclick="vote(this.id)"> <span class="text">Vote</span>
       </button>`
         }
       }
