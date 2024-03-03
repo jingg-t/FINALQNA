@@ -18,8 +18,8 @@ render();
 let intervalId = setInterval(render, 5000);
 
 
-async function vote(clickedId) {
-  await fetch('https://oebcalendar-c34e0-default-rtdb.firebaseio.com/qna/posts/.json?AIzaSyBKQ7SbuDkeqsN8d22tAC_a52kpwaKSJVA')
+function vote(clickedId) {
+  fetch('https://oebcalendar-c34e0-default-rtdb.firebaseio.com/qna/posts/.json?AIzaSyBKQ7SbuDkeqsN8d22tAC_a52kpwaKSJVA')
   .then(res => res.json())
   .then(data => {
     for (elem in data) {
