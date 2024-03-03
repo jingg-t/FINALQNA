@@ -3,10 +3,11 @@ function render() {
   fetch('https://oebcalendar-c34e0-default-rtdb.firebaseio.com/qna/posts/.json?AIzaSyBKQ7SbuDkeqsN8d22tAC_a52kpwaKSJVA')
   .then(res => res.json())
   .then(data => {
+      
       displayFrame.innerHTML = `<h1 id="title"> Vote on a Question Questions </h1>`;
       for (elem in data) {
         if (!displayFrame.innerHTML.includes(data[elem]['id'])){
-          displayFrame.innerHTML += `<div class="question" id="${data[elem]['id']}"> <p> ${data[elem]['question']} </p></div> <button class="button-48" id="${data[elem]["id"]}" role="button" ontouchend="vote(this.id)" onclick="vote(this.id)"> <span class="text">Vote</span>
+          displayFrame.innerHTML += `<div class="question" id="${data[elem]['id']}"> <p> ${data[elem]['question']} </p></div> <button class="button-48" id="${data[elem]["id"]}" role="button" onclick="vote(this.id)"> <span class="text">Vote</span>
       </button>`
         }
       }
@@ -14,12 +15,13 @@ function render() {
 }
 
 render(); 
+
 // Start the interval
-let intervalId = setInterval(render, 5000);
+let intervalId = setInterval(render, 2500);
 
 
-function vote(clickedId) {
-  fetch('https://oebcalendar-c34e0-default-rtdb.firebaseio.com/qna/posts/.json?AIzaSyBKQ7SbuDkeqsN8d22tAC_a52kpwaKSJVA')
+async function vote(clickedId) {
+  await fetch('https://oebcalendar-c34e0-default-rtdb.firebaseio.com/qna/posts/.json?AIzaSyBKQ7SbuDkeqsN8d22tAC_a52kpwaKSJVA')
   .then(res => res.json())
   .then(data => {
     for (elem in data) {
